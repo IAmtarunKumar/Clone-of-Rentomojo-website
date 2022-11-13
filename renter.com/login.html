@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+<body>
+    <div class="login-main" >
+        <div >
+            <img src="https://cdn.dribbble.com/users/4107081/screenshots/9976207/media/1809db221885c1b795177c4a51f21cec.gif" width="50%" alt="">
+        </div>
+        <div>
+            <h2>For SignIn </h2>
+            <p>
+                Enter Your Number</p>
+            <input type="number" placeholder=" Enter Your Phone Number*" id="number">
+                <br><br><br><br><br><br><br>
+            <!-- <a  class="continue" href="otp.html">Continue</a> -->
+            <button id="cont">SignUp</button>
+        </div>
+
+    </div>
+</body>
+</html>
+<script >
+    let arr=JSON.parse(localStorage.getItem("number"))||[]
+document.querySelector("#cont").addEventListener("click",function(){
+    var number= document.querySelector("#number").value;
+    
+   var otp=Math.floor((Math.random()*1000)+999);
+  
+   if(number.length=="10"){
+    console.log(number);
+    console.log(otp);
+    var obj={number,otp};
+    console.log(obj);
+    arr.push(obj);
+    alert(otp);
+    localStorage.setItem("number",JSON.stringify(arr));
+    window.location="otp.html"
+   }else{
+    alert("Enter validate Number")
+   }
+    })
+
+</script>
